@@ -1,11 +1,11 @@
-# Set the base image to use for subsequent instructions
-FROM alpine:3.20
+FROM rust:latest as builder-base
 
-# Set the working directory inside the container
-WORKDIR /usr/src
+RUN rustup default stable && \
+    rustup target add wasm32-unknown-unknown && \
+    rustup update
 
-# Copy any source file(s) required for the action
-COPY entrypoint.sh .
+RUN cargo install dioxus-cli
 
-# Configure the container to be run as an executable
-ENTRYPOINT ["/usr/src/entrypoint.sh"]
+FROM builder-base as dioxus
+
+ENTRYPOINT ["dx"]
