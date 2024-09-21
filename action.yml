@@ -1,6 +1,6 @@
-name: Hello, World!
-description: Greet someone and record the time
-author: GitHub Actions
+name: Publish Rust
+description: Build and publish rust packages to crates-io
+author: FL03
 
 # Define your inputs here.
 inputs:
