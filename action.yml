@@ -4,6 +4,21 @@ author: GitHub Actions
 
 # Define your inputs here.
 inputs:
+  all-features:
+    default: true
+    description: build and publish all availible features
+    required: true
+  package:
+    description: The name of the package being published
+    required: true
+  platform:
+    default: ubuntu-latest
+    description: The operating system of the runner
+    required: true
+  toolchain:
+    default: stable
+    description: The rustup toolchain to leverage when building the crate
+    required: true
   who-to-greet:
     description: Who to greet
     required: true
